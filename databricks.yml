@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=bundle_config_schema.json
 bundle:
   name: baby-names
-
+  auth_type: pat
 resources:
   jobs:
     retrieve-filter-baby-names-job:
@@ -16,21 +16,21 @@ resources:
       tasks:
         - task_key: retrieve-baby-names-task
           #job_cluster_key: common-cluster
-          existing_cluster_id: 0212-162040-grp54nl4
+          existing_cluster_id: 0217-185023-72fc3d5s
           notebook_task:
             notebook_path: ./retrieve-baby-names.py
         - task_key: filter-baby-names-task
           depends_on:
             - task_key: retrieve-baby-names-task
           #job_cluster_key: common-cluster
-          existing_cluster_id: 0212-162040-grp54nl4
+          existing_cluster_id: 0217-185023-72fc3d5s
           notebook_task:
             notebook_path: ./filter-baby-names.py
 
 targets:
   development:
     workspace:
-      host: https://dbc-d3920b54-32ae.cloud.databricks.com/
-    default: false
-  development1:
+      host: https://dbc-7865d828-edb1.cloud.databricks.com/
     default: true
+  development1:
+    default: false
